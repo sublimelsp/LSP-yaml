@@ -1,0 +1,9 @@
+{
+  "name": "yaml-language-server-resources",
+  "description": "Helper package to install yaml-language-server npm package",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "yaml-language-server": "file:../resources/yaml-language-server-0.7.2.tgz"
+  }
+}

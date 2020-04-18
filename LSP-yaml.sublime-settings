@@ -1,0 +1,28 @@
+{
+  "languages": [
+    {
+      "languageId": "yaml",
+      "scopes": [
+        "source.yaml",
+        "source.yml"
+      ],
+      "syntaxes": [
+        "Packages/YAML/YAML.sublime-syntax"
+      ]
+    }
+  ],
+  "settings": {
+    "yaml": {
+      "format": {
+        "enable": true
+      },
+      "hover": true,
+      "completion": true,
+      "schemas": {},
+      "validate": true,
+      "schemaStore": {
+        "enable": true
+      }
+    }
+  }
+}
