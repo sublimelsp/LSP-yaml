@@ -8,10 +8,14 @@ By default, schemas are automatically retrieved from [schemastore.org](http://sc
 
 ## Install
 
-* Install [LSP](https://packagecontrol.io/packages/LSP)
-* ~`LSP-yaml` from Package Control.~ Add repository `https://github.com/RandomByte/LSP-yaml`
+* Open the command palette and run Package Control: Install Package, then select [LSP](https://packagecontrol.io/packages/LSP)
+* *~Install `LSP-yaml` from Package Control.~* Clone this repository into your Packages directory (`Preferences > Browse Packages...`). Open the command palette and run `Package Control: Satisfy Dependencies.`
 * Restart Sublime.
 
 ## Configuration
 
 Open configuration file using command palette with `Preferences: LSP-yaml Settings` command or opening it from the Sublime menu (`Preferences > Package Settings > LSP > Servers > LSP-yaml`).
+
+## Development
+
+Clone this repository into your Packages directory. Open the command palette and run `Package Control: Satisfy Dependencies.`
