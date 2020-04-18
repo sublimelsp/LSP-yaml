@@ -11,7 +11,7 @@ from sublime_lib import ResourcePath
 
 PACKAGE_NAME = 'LSP-yaml'
 SETTINGS_FILENAME = 'LSP-yaml.sublime-settings'
-SERVER_DIRECTORY = 'yaml-language-server'
+SERVER_DIRECTORY = 'yaml-language-server-resources'
 SERVER_BINARY_PATH = os.path.join(SERVER_DIRECTORY, 'node_modules', 'yaml-language-server',
                                   'bin', 'yaml-language-server')
 
