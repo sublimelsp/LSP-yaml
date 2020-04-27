@@ -3,11 +3,9 @@ import shutil
 import sublime
 
 from LSP.plugin.core.handlers import LanguageHandler
-from LSP.plugin.core.protocol import Response
 from LSP.plugin.core.settings import ClientConfig, read_client_config
 from LSP.plugin.core.typing import Dict, List
 from lsp_utils import ServerNpmResource
-from sublime_lib import ResourcePath
 
 PACKAGE_NAME = 'LSP-yaml'
 SETTINGS_FILENAME = 'LSP-yaml.sublime-settings'
