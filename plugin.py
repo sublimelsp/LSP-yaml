@@ -12,7 +12,7 @@ def plugin_unloaded():
 
 class LspYamlPlugin(NpmClientHandler):
     package_name = __package__
-    server_directory = 'yaml-language-server-resources'
+    server_directory = 'language-server'
     server_binary_path = os.path.join(
         server_directory, 'node_modules', 'yaml-language-server', 'bin', 'yaml-language-server'
     )
