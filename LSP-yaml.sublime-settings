@@ -10,6 +10,8 @@
 			"syntaxes": [
 				"Packages/YAML/YAML.sublime-syntax",
 			],
+			// ST 4
+			"document_selector": "source.yml | source.yaml",
 		},
 	],
 	// @see https://github.com/redhat-developer/yaml-language-server#language-server-settings
