@@ -16,3 +16,7 @@ class LspYamlPlugin(NpmClientHandler):
     server_binary_path = os.path.join(
         server_directory, 'node_modules', 'yaml-language-server', 'bin', 'yaml-language-server'
     )
+
+    @classmethod
+    def install_in_cache(cls) -> bool:
+        return False
