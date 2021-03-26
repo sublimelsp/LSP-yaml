@@ -4,6 +4,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "yaml-language-server": "^0.16.0"
+    "yaml-language-server": "^0.17.0"
   }
 }
