@@ -54,5 +54,8 @@
 		"yaml.schemaStore.enable": true,
 		// Enable/disable validation feature
 		"yaml.validate": true,
+		// Globally set additionalProperties to false if additionalProperties is not set and if schema.type is object.
+		// So if its true, no extra properties are allowed inside yaml.
+		"yaml.disableAdditionalProperties": false,
 	},
 }
