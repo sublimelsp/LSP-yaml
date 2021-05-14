@@ -29,6 +29,8 @@
 		// or you can specify the type of the object !Ref should be e.g. "!Ref sequence".
 		// The type of object can be either scalar (for strings and booleans), sequence (for arrays), map (for objects).
 		"yaml.customTags": [],
+		// The maximum number of outline symbols and folding regions computed (limited for performance reasons).
+		"yaml.maxItemsComputed": 5000,
 		// The number of spaces to use when autocompleting
 		"yaml.editor.tabSize": 2,
 		// Enable/disable default YAML formatter (requires restart)
