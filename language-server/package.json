@@ -1,6 +1,6 @@
 {
   "private": true,
   "dependencies": {
-    "yaml-language-server": "^0.19.0"
+    "yaml-language-server": "^0.19.1"
   }
 }
