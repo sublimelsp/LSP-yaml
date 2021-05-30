@@ -52,6 +52,8 @@
 		// When set to true the YAML language server will pull in all available schemas
 		// from JSON Schema Store: https://www.schemastore.org/json/
 		"yaml.schemaStore.enable": true,
+		// Overrides the schema catalog URL. Defaults to https://www.schemastore.org/api/json/catalog.json
+		"yaml.schemaStore.url": "",
 		// Enable/disable validation feature
 		"yaml.validate": true,
 		// Globally set additionalProperties to false if additionalProperties is not set and if schema.type is object.
