@@ -22,7 +22,7 @@
 		"http.proxy": null,
 		// If true the proxy server certificate should be verified against the list of supplied CAs
 		"http.proxyStrictSSL": false,
-		// Enable/disable autocompletion
+		// Enable/disable autocompletion feature
 		"yaml.completion": true,
 		// Array of custom tags that the parser will validate against. It has two ways to be used.
 		// Either an item in the array is a custom tag such as "!Ref" and it will automatically map !Ref to scalar
@@ -33,7 +33,7 @@
 		"yaml.maxItemsComputed": 5000,
 		// The number of spaces to use when autocompleting
 		"yaml.editor.tabSize": 2,
-		// Enable/disable default YAML formatter (requires restart)
+		// Enable/disable default YAML formatter
 		"yaml.format.enable": true,
 		// Use single quotes instead of double quotes
 		"yaml.format.singleQuote": false,
@@ -47,10 +47,9 @@
 		"yaml.format.printWidth": 120,
 		// Enable/disable hover
 		"yaml.hover": true,
-		// Helps you associate schemas with files in a glob pattern
+		// Associate schemas to YAML files in the current workspace
 		"yaml.schemas": {},
-		// When set to true the YAML language server will pull in all available schemas
-		// from JSON Schema Store: https://www.schemastore.org/json/
+		// Automatically pull available YAML schemas from JSON Schema Store
 		"yaml.schemaStore.enable": true,
 		// Overrides the schema catalog URL. Defaults to https://www.schemastore.org/api/json/catalog.json
 		"yaml.schemaStore.url": "",
