@@ -21,6 +21,19 @@
                 "settings": {
                   "additionalProperties": false,
                   "properties": {
+                    "http.proxy": {
+                      "default": null,
+                      "description": "The URL of the proxy server that will be used when attempting to download a schema. If it is not set or it is undefined no proxy server will be used.",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                    },
+                    "http.proxyStrictSSL": {
+                      "default": false,
+                      "description": "If true the proxy server certificate should be verified against the list of supplied CAs",
+                      "type": "boolean"
+                    },
                     "yaml.completion": {
                       "default": true,
                       "description": "Enable/disable completion feature.",
@@ -35,6 +48,11 @@
                       "default": false,
                       "markdownDescription": "Globally set `additionalProperties` to false for all objects. So if its `true`, no extra properties are allowed inside yaml.",
                       "type": "boolean"
+                    },
+                    "yaml.editor.tabSize": {
+                      "default": 2,
+                      "description": "The number of spaces to use when autocompleting",
+                      "type": "integer"
                     },
                     "yaml.format.bracketSpacing": {
                       "default": true,
