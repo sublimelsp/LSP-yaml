@@ -30,8 +30,7 @@ class LspYamlPlugin(NpmClientHandler):
             parsed = urllib.parse.urlparse(uri)
             http_url = urllib.parse.unquote(parsed.fragment)
             with urllib.request.urlopen(http_url) as f:
-                content = f.read().decode('utf-8')
-            content = content.replace("\r", "")
+                content = f.read().decode('utf-8').replace("\r", "")
             callback(urllib.parse.urldefrag(uri).url, content, "scope:source.json")
 
         sublime.set_timeout_async(run_blocking)
