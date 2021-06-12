@@ -32,12 +32,7 @@ class LspYamlPlugin(NpmClientHandler):
             with urllib.request.urlopen(http_url) as f:
                 content = f.read().decode('utf-8')
             content = content.replace("\r", "")
-            syntaxes = sublime.find_syntax_by_scope("source.json")
-            if not syntaxes:
-                path = "Packages/Plain Text/Plain Text.tmLanguage"
-            else:
-                path = syntaxes[0].path
-            callback(urllib.parse.urldefrag(uri).url, content, path)
+            callback(urllib.parse.urldefrag(uri).url, content, "scope:source.json")
 
         sublime.set_timeout_async(run_blocking)
         return True
