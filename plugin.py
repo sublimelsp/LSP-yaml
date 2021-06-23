@@ -1,5 +1,6 @@
 from LSP.plugin.core.typing import Callable
 from lsp_utils import NpmClientHandler
+import functools
 import os
 import sublime
 import urllib.parse
@@ -26,12 +27,18 @@ class LspYamlPlugin(NpmClientHandler):
             return False
 
         def run_blocking() -> None:
-            # TODO: Make async!
-            parsed = urllib.parse.urlparse(uri)
-            http_url = urllib.parse.unquote(parsed.fragment)
-            with urllib.request.urlopen(http_url) as f:
-                content = f.read().decode('utf-8').replace("\r", "")
-            callback(urllib.parse.urldefrag(uri).url, content, "scope:source.json")
+            title = urllib.parse.urldefrag(uri).url
+            try:
+                # TODO: Make async!
+                parsed = urllib.parse.urlparse(uri)
+                http_url = urllib.parse.unquote(parsed.fragment)
+                with urllib.request.urlopen(http_url) as f:
+                    content = f.read().decode('utf-8').replace("\r", "")
+                syntax = sublime.find_syntax_by_scope("source.json")[0].path
+            except Exception as ex:
+                content = "Error: {}".format(ex)
+                syntax = "Packages/Text/Plain text.tmLanguage"
+            sublime.set_timeout_async(functools.partial(callback, title, content, syntax))
 
         sublime.set_timeout_async(run_blocking)
         return True
