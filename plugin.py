@@ -34,7 +34,7 @@ class LspYamlPlugin(NpmClientHandler):
                 http_url = urllib.parse.unquote(parsed.fragment)
                 with urllib.request.urlopen(http_url) as f:
                     content = f.read().decode('utf-8').replace("\r", "")
-                syntax = sublime.find_syntax_by_scope("source.json")[0].path
+                syntax = sublime.find_syntax_for_file(urllib.parse.urlparse(http_url).path).path
             except Exception as ex:
                 content = "Error: {}".format(ex)
                 syntax = "Packages/Text/Plain text.tmLanguage"
