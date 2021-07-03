@@ -13,7 +13,7 @@
 			],
 		},
 	],
-	// ST4
+	// ST 4
 	"selector": "source.yml | source.yaml",
 	"schemes": ["file", "buffer", "res", "json-schema"],
 	// @see https://github.com/redhat-developer/yaml-language-server#language-server-settings
