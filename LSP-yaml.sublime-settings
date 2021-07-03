@@ -1,9 +1,9 @@
 {
 	"command": ["${node_bin}", "${server_path}", "--stdio"],
+	// ST 3
 	"languages": [
 		{
 			"languageId": "yaml",
-			// ST 3
 			"scopes": [
 				"source.yaml",
 				"source.yml",
@@ -11,10 +11,11 @@
 			"syntaxes": [
 				"Packages/YAML/YAML.sublime-syntax",
 			],
-			// ST 4
-			"document_selector": "source.yml | source.yaml",
 		},
 	],
+	// ST4
+	"selector": "source.yml | source.yaml",
+	"schemes": ["file", "buffer", "res", "json-schema"],
 	// @see https://github.com/redhat-developer/yaml-language-server#language-server-settings
 	"settings": {
 		// The URL of the proxy server that will be used when attempting to download a schema.
