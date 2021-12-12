@@ -1,20 +1,5 @@
 {
 	"command": ["${node_bin}", "${server_path}", "--stdio"],
-	// ST 3
-	"languages": [
-		{
-			"languageId": "yaml",
-			"scopes": [
-				"source.yaml",
-				"source.yml",
-			],
-			"syntaxes": [
-				"Packages/YAML/YAML.sublime-syntax",
-			],
-		},
-	],
-	// ST 4
-	"selector": "source.yml | source.yaml",
 	"schemes": ["file", "buffer", "res", "json-schema"],
 	// @see https://github.com/redhat-developer/yaml-language-server#language-server-settings
 	"settings": {
@@ -60,4 +45,14 @@
 		// So if its true, no extra properties are allowed inside yaml.
 		"yaml.disableAdditionalProperties": false,
 	},
+	// ST 4
+	"selector": "source.yml | source.yaml",
+	// ST 3
+	"languages": [
+		{
+			"languageId": "yaml",
+			"scopes": ["source.yaml", "source.yml"],
+			"syntaxes": ["Packages/YAML/YAML.sublime-syntax"],
+		},
+	],
 }
