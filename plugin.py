@@ -17,9 +17,9 @@ def plugin_unloaded():
 
 class LspYamlPlugin(NpmClientHandler):
     package_name = __package__
-    server_directory = 'language-server'
+    server_directory = "language-server"
     server_binary_path = os.path.join(
-        server_directory, 'node_modules', 'yaml-language-server', 'bin', 'yaml-language-server'
+        server_directory, "node_modules", "yaml-language-server", "bin", "yaml-language-server"
     )
 
     def on_open_uri_async(self, uri: str, callback: Callable[[str, str, str], None]) -> bool:
@@ -33,7 +33,7 @@ class LspYamlPlugin(NpmClientHandler):
                 parsed = urllib.parse.urlparse(uri)
                 http_url = urllib.parse.unquote(parsed.fragment)
                 with urllib.request.urlopen(http_url) as f:
-                    content = f.read().decode('utf-8').replace("\r", "")
+                    content = f.read().decode("utf-8").replace("\r", "")
                 syntax = sublime.find_syntax_for_file(urllib.parse.urlparse(http_url).path).path
             except Exception as ex:
                 content = "Error: {}".format(ex)
