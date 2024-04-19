@@ -45,14 +45,5 @@
 		// So if its true, no extra properties are allowed inside yaml.
 		"yaml.disableAdditionalProperties": false,
 	},
-	// ST 4
 	"selector": "source.yml | source.yaml",
-	// ST 3
-	"languages": [
-		{
-			"languageId": "yaml",
-			"scopes": ["source.yaml", "source.yml"],
-			"syntaxes": ["Packages/YAML/YAML.sublime-syntax"],
-		},
-	],
 }
