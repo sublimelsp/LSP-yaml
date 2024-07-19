@@ -29,6 +29,15 @@ class LspYamlPlugin(NpmClientHandler):
         "yaml-language-server",
     )
 
+    @classmethod
+    def should_ignore(cls, view: sublime.View) -> bool:
+        return bool(
+            # SublimeREPL views
+            view.settings().get("repl")
+            # syntax test files
+            or os.path.basename(view.file_name() or "").startswith("syntax_test")
+        )
+
     def on_open_uri_async(self, uri: str, callback: Callable[[str, str, str], None]) -> bool:
         def run_blocking() -> None:
             title = urllib.parse.urldefrag(uri).url
