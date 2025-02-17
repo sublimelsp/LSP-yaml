@@ -45,5 +45,7 @@
 		// So if its true, no extra properties are allowed inside yaml.
 		"yaml.disableAdditionalProperties": false,
 	},
-	"selector": "source.yml | source.yaml",
+	// Templated YAML syntaxes (like with Go templates) confuse yaml-language-server
+	// and are better handled by dedicated language servers.
+	"selector": "source.yml | source.yaml - source.yaml.go",
 }
