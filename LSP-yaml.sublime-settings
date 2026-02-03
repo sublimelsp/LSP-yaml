@@ -47,5 +47,5 @@
 	},
 	// Templated YAML syntaxes (like with Go templates) confuse yaml-language-server
 	// and are better handled by dedicated language servers.
-	"selector": "(source.yml | source.yaml) - source.yaml.go - source.yaml.helm",
+	"selector": "(source.yml | source.yaml) - (source.yaml.go | source.yaml.helm | source.yaml.esphome)",
 }
