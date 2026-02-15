@@ -1,6 +1,3 @@
-[tool.basedpyright]
-pythonVersion = '3.8'
-
 [tool.pyright]
 pythonVersion = '3.8'
 
