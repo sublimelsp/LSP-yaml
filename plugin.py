@@ -5,9 +5,12 @@ import os
 import urllib.parse
 import urllib.request
 from collections.abc import Callable
+from typing import final
 
 import sublime
+from LSP.plugin import ClientConfig
 from lsp_utils import NpmClientHandler
+from typing_extensions import override
 
 
 def plugin_loaded() -> None:
@@ -18,8 +21,9 @@ def plugin_unloaded() -> None:
     LspYamlPlugin.cleanup()
 
 
+@final
 class LspYamlPlugin(NpmClientHandler):
-    package_name = __package__
+    package_name = str(__package__)
     server_directory = "language-server"
     server_binary_path = os.path.join(
         server_directory,
@@ -29,15 +33,16 @@ class LspYamlPlugin(NpmClientHandler):
         "yaml-language-server",
     )
 
+    @override
     @classmethod
-    def should_ignore(cls, view: sublime.View) -> bool:
+    def is_applicable(cls, view: sublime.View, config: ClientConfig) -> bool:
         return bool(
-            # SublimeREPL views
-            view.settings().get("repl")
-            # syntax test files
-            or os.path.basename(view.file_name() or "").startswith("syntax_test")
+            super().is_applicable(view, config)
+            # REPL views (https://github.com/sublimelsp/LSP-pyright/issues/343)
+            and not view.settings().get("repl")
         )
 
+    @override
     def on_open_uri_async(self, uri: str, callback: Callable[[str, str, str], None]) -> bool:
         def run_blocking() -> None:
             title = urllib.parse.urldefrag(uri).url
