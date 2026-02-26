@@ -33,7 +33,10 @@
 		"yaml.format.printWidth": 120,
 		// Enable/disable hover
 		"yaml.hover": true,
-		// Associate schemas to YAML files in the current workspace
+		// Associate schemas to YAML files in the current workspace. The expected value of this configuration option is
+		// a string to string map:
+		// - Key: The path or URL of the schema to use.
+		// - Value: A glob pattern or list of glob patterns specifying which files the schema should be used on.
 		"yaml.schemas": {},
 		// Automatically pull available YAML schemas from JSON Schema Store
 		"yaml.schemaStore.enable": true,
