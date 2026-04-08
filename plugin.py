@@ -1,15 +1,16 @@
 from __future__ import annotations
 
-from collections.abc import Callable
-from LSP.plugin import ClientConfig
-from lsp_utils import NpmClientHandler
-from typing import final
-from typing_extensions import override
 import functools
 import os
-import sublime
 import urllib.parse
 import urllib.request
+from collections.abc import Callable
+from typing import final
+
+import sublime
+from LSP.plugin import ClientConfig
+from lsp_utils import NpmClientHandler
+from typing_extensions import override
 
 
 def plugin_loaded() -> None:
