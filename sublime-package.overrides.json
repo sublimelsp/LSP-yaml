@@ -4,6 +4,8 @@
         "yaml.trace.server"
     ],
     "transform": [
-        ".[\"yaml.format.printWidth\"].default = 120"
+        ".[\"yaml.format.printWidth\"].default = 120",
+        ".[\"yaml.extension.recommendations\"].default = true",
+        ".[\"yaml.hoverSchemaSource\"].default = true"
     ]
 }
