@@ -53,8 +53,6 @@
 		"yaml.style.flowSequence": "allow",
 		// Enforces alphabetical ordering of keys in mappings when set to true
 		"yaml.keyOrdering": false,
-		// Suggest additional extensions based on YAML usage.
-		"yaml.extension.recommendations": true,
 		// Enable/disable showing the schema source in hover tooltips
 		"yaml.hoverSchemaSource": true,
 	},

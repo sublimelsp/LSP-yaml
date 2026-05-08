@@ -1,11 +1,11 @@
 {
     "remove": [
         "redhat.telemetry.enabled",
+        "yaml.extension.recommendations",
         "yaml.trace.server"
     ],
     "transform": [
         ".[\"yaml.format.printWidth\"].default = 120",
-        ".[\"yaml.extension.recommendations\"].default = true",
         ".[\"yaml.hoverSchemaSource\"].default = true"
     ]
 }
