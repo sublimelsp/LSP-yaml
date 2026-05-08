@@ -1,0 +1,9 @@
+{
+    "remove": [
+        "redhat.telemetry.enabled",
+        "yaml.trace.server"
+    ],
+    "transform": [
+        ".[\"yaml.format.printWidth\"].default = 120"
+    ]
+}
