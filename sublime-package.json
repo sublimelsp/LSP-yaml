@@ -21,93 +21,18 @@
                 "settings": {
                   "additionalProperties": false,
                   "properties": {
-                    "http.proxy": {
-                      "default": null,
-                      "description": "The URL of the proxy server that will be used when attempting to download a schema. If it is not set or it is undefined no proxy server will be used.",
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                    },
-                    "http.proxyStrictSSL": {
-                      "default": false,
-                      "description": "If true the proxy server certificate should be verified against the list of supplied CAs",
-                      "type": "boolean"
-                    },
-                    "yaml.completion": {
-                      "default": true,
-                      "description": "Enable/disable completion feature.",
-                      "type": "boolean"
-                    },
-                    "yaml.customTags": {
-                      "default": [],
-                      "markdownDescription": "Array of custom tags that the parser will validate against. It has two ways to be used. Either an item in the array is a custom tag such as `\"!Ref\"` and it will automatically map `!Ref` to scalar or you can specify the type of the object !Ref should be e.g. `\"!Ref sequence\"`. The type of object can be either scalar (for strings and booleans), sequence (for arrays), map (for objects).",
-                      "type": "array"
-                    },
-                    "yaml.disableAdditionalProperties": {
-                      "default": false,
-                      "markdownDescription": "Globally set `additionalProperties` to false for all objects. So if its `true`, no extra properties are allowed inside yaml.",
-                      "type": "boolean"
-                    },
-                    "yaml.editor.tabSize": {
-                      "default": 2,
-                      "description": "The number of spaces to use when autocompleting",
-                      "type": "integer"
-                    },
-                    "yaml.format.bracketSpacing": {
-                      "default": true,
-                      "description": "Print spaces between brackets in objects",
-                      "type": "boolean"
-                    },
-                    "yaml.format.enable": {
-                      "default": true,
-                      "description": "Enable/disable default YAML formatter",
-                      "type": "boolean"
-                    },
-                    "yaml.format.printWidth": {
-                      "default": 120,
-                      "description": "Specify the line length that the printer will wrap on",
-                      "type": "integer"
-                    },
-                    "yaml.format.proseWrap": {
-                      "default": "preserve",
-                      "description": "Always: wrap prose if it exeeds the print width, Never: never wrap the prose, Preserve: wrap prose as-is",
+                    "yaml.yamlVersion": {
+                      "type": "string",
+                      "default": "1.2",
                       "enum": [
-                        "preserve",
-                        "never",
-                        "always"
+                        "1.1",
+                        "1.2"
                       ],
-                      "type": "string"
-                    },
-                    "yaml.format.singleQuote": {
-                      "default": false,
-                      "description": "Use single quotes instead of double quotes",
-                      "type": "boolean"
-                    },
-                    "yaml.hover": {
-                      "default": true,
-                      "description": "Enable/disable hover feature",
-                      "type": "boolean"
-                    },
-                    "yaml.maxItemsComputed": {
-                      "default": 5000,
-                      "description": "The maximum number of outline symbols and folding regions computed (limited for performance reasons).",
-                      "type": "integer"
-                    },
-                    "yaml.schemaStore.enable": {
-                      "default": true,
-                      "description": "Automatically pull available YAML schemas from JSON Schema Store",
-                      "type": "boolean"
-                    },
-                    "yaml.schemaStore.url": {
-                      "default": "https://www.schemastore.org/api/json/catalog.json",
-                      "description": "URL of schema store catalog to use",
-                      "type": "string"
+                      "markdownDescription": "Default YAML spec version"
                     },
                     "yaml.schemas": {
-                      "default": {},
-                      "description": "Associate schemas to YAML files in the current workspace. The expected value of this configuration option is a string to string map:\n- **Key**: The path or URL of the schema to use.\n- **Value**: A glob pattern or list of glob patterns specifying which files the schema should be used on.",
                       "type": "object",
+                      "default": {},
                       "additionalProperties": {
                         "anyOf": [
                           {
@@ -121,12 +46,138 @@
                           }
                         ],
                         "markdownDescription": "- **Key**: The path or URL of the schema to use\n- **Value**: A glob pattern or list of glob patterns specifying which files the schema should be used on"
-                      }
+                      },
+                      "markdownDescription": "Associate schemas to YAML files in the current workspace. The expected value of this configuration option is a string to string map:\n- **Key**: The path or URL of the schema to use\n- **Value**: A glob pattern or list of glob patterns specifying which files the schema should be used on"
+                    },
+                    "yaml.kubernetesCRDStore.enable": {
+                      "type": "boolean",
+                      "description": "Enable/disable validation of Kubernetes custom resources using schemas from well-known Custom Resource Definitions (CRDs)",
+                      "default": true
+                    },
+                    "yaml.kubernetesCRDStore.url": {
+                      "type": "string",
+                      "description": "The base URL for fetching well-known Custom Resource Definition (CRD) schemas",
+                      "default": "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main"
+                    },
+                    "yaml.format.enable": {
+                      "type": "boolean",
+                      "default": true,
+                      "description": "Enable/disable default YAML formatter",
+                      "scope": "language-overridable"
+                    },
+                    "yaml.format.singleQuote": {
+                      "type": "boolean",
+                      "default": false,
+                      "description": "Use single quotes instead of double quotes"
+                    },
+                    "yaml.format.bracketSpacing": {
+                      "type": "boolean",
+                      "default": true,
+                      "description": "Print spaces between brackets in objects"
+                    },
+                    "yaml.format.proseWrap": {
+                      "type": "string",
+                      "default": "preserve",
+                      "enum": [
+                        "preserve",
+                        "never",
+                        "always"
+                      ],
+                      "description": "Always: wrap prose if it exceeds the print width, Never: never wrap the prose, Preserve: wrap prose as-is"
+                    },
+                    "yaml.format.printWidth": {
+                      "type": "integer",
+                      "default": 120,
+                      "description": "Specify the line length that the printer will wrap on"
+                    },
+                    "yaml.format.trailingComma": {
+                      "type": "boolean",
+                      "default": true,
+                      "description": "Specify if trailing commas should be used in JSON-like segments of the YAML"
                     },
                     "yaml.validate": {
+                      "type": "boolean",
                       "default": true,
                       "description": "Enable/disable validation feature",
-                      "type": "boolean"
+                      "scope": "language-overridable"
+                    },
+                    "yaml.hover": {
+                      "type": "boolean",
+                      "default": true,
+                      "description": "Enable/disable hover feature"
+                    },
+                    "yaml.hoverAnchor": {
+                      "type": "boolean",
+                      "default": true,
+                      "description": "Enable/disable hover feature for anchors"
+                    },
+                    "yaml.completion": {
+                      "type": "boolean",
+                      "default": true,
+                      "description": "Enable/disable completion feature"
+                    },
+                    "yaml.customTags": {
+                      "type": "array",
+                      "default": [],
+                      "description": "Custom tags for the parser to use"
+                    },
+                    "yaml.schemaStore.enable": {
+                      "type": "boolean",
+                      "default": true,
+                      "description": "Automatically pull available YAML schemas from JSON Schema Store"
+                    },
+                    "yaml.schemaStore.url": {
+                      "type": "string",
+                      "default": "https://www.schemastore.org/api/json/catalog.json",
+                      "description": "URL of schema store catalog to use"
+                    },
+                    "yaml.disableAdditionalProperties": {
+                      "type": "boolean",
+                      "default": false,
+                      "description": "Globally set additionalProperties to false for all objects. So if its true, no extra properties are allowed inside yaml."
+                    },
+                    "yaml.disableDefaultProperties": {
+                      "type": "boolean",
+                      "default": false,
+                      "description": "Disable adding not required properties with default values into completion text."
+                    },
+                    "yaml.maxItemsComputed": {
+                      "type": "integer",
+                      "default": 5000,
+                      "description": "The maximum number of outline symbols and folding regions computed (limited for performance reasons)."
+                    },
+                    "yaml.suggest.parentSkeletonSelectedFirst": {
+                      "type": "boolean",
+                      "default": false,
+                      "description": "If true, the user must select some parent skeleton first before autocompletion starts to suggest the rest of the properties. When yaml object is not empty, autocompletion ignores this setting and returns all properties and skeletons"
+                    },
+                    "yaml.style.flowMapping": {
+                      "type": "string",
+                      "enum": [
+                        "allow",
+                        "forbid"
+                      ],
+                      "default": "allow",
+                      "description": "Forbid flow style mappings"
+                    },
+                    "yaml.style.flowSequence": {
+                      "type": "string",
+                      "enum": [
+                        "allow",
+                        "forbid"
+                      ],
+                      "default": "allow",
+                      "description": "Forbid flow style sequences"
+                    },
+                    "yaml.keyOrdering": {
+                      "type": "boolean",
+                      "default": false,
+                      "description": "Enforces alphabetical ordering of keys in mappings when set to true"
+                    },
+                    "yaml.hoverSchemaSource": {
+                      "type": "boolean",
+                      "default": true,
+                      "description": "Enable/disable showing the schema source in hover tooltips"
                     }
                   }
                 }

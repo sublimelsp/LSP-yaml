@@ -3,50 +3,58 @@
 	"schemes": ["file", "buffer", "res", "json-schema"],
 	// @see https://github.com/redhat-developer/yaml-language-server#language-server-settings
 	"settings": {
-		// The URL of the proxy server that will be used when attempting to download a schema.
-		// If it is not set or it is undefined no proxy server will be used.
-		"http.proxy": null,
-		// If true the proxy server certificate should be verified against the list of supplied CAs
-		"http.proxyStrictSSL": false,
-		// Enable/disable autocompletion feature
-		"yaml.completion": true,
-		// Array of custom tags that the parser will validate against. It has two ways to be used.
-		// Either an item in the array is a custom tag such as "!Ref" and it will automatically map !Ref to scalar
-		// or you can specify the type of the object !Ref should be e.g. "!Ref sequence".
-		// The type of object can be either scalar (for strings and booleans), sequence (for arrays), map (for objects).
-		"yaml.customTags": [],
-		// The maximum number of outline symbols and folding regions computed (limited for performance reasons).
-		"yaml.maxItemsComputed": 5000,
-		// The number of spaces to use when autocompleting
-		"yaml.editor.tabSize": 2,
+		// Default YAML spec version
+		"yaml.yamlVersion": "1.2",
+		// Associate schemas to YAML files in the current workspace. The expected value of this configuration option is a string to string map:
+		// - **Key**: The path or URL of the schema to use
+		// - **Value**: A glob pattern or list of glob patterns specifying which files the schema should be used on
+		"yaml.schemas": {},
+		// Enable/disable validation of Kubernetes custom resources using schemas from well-known Custom Resource Definitions (CRDs)
+		"yaml.kubernetesCRDStore.enable": true,
+		// The base URL for fetching well-known Custom Resource Definition (CRD) schemas
+		"yaml.kubernetesCRDStore.url": "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main",
 		// Enable/disable default YAML formatter
 		"yaml.format.enable": true,
 		// Use single quotes instead of double quotes
 		"yaml.format.singleQuote": false,
 		// Print spaces between brackets in objects
 		"yaml.format.bracketSpacing": true,
-		// always: wrap prose if it exeeds the print width
-		// never: never wrap the prose
-		// preserve: wrap prose as-is
+		// Always: wrap prose if it exceeds the print width, Never: never wrap the prose, Preserve: wrap prose as-is
 		"yaml.format.proseWrap": "preserve",
 		// Specify the line length that the printer will wrap on
 		"yaml.format.printWidth": 120,
-		// Enable/disable hover
-		"yaml.hover": true,
-		// Associate schemas to YAML files in the current workspace. The expected value of this configuration option is
-		// a string to string map:
-		// - Key: The path or URL of the schema to use.
-		// - Value: A glob pattern or list of glob patterns specifying which files the schema should be used on.
-		"yaml.schemas": {},
-		// Automatically pull available YAML schemas from JSON Schema Store
-		"yaml.schemaStore.enable": true,
-		// Overrides the schema catalog URL. Defaults to https://www.schemastore.org/api/json/catalog.json
-		"yaml.schemaStore.url": "",
+		// Specify if trailing commas should be used in JSON-like segments of the YAML
+		"yaml.format.trailingComma": true,
 		// Enable/disable validation feature
 		"yaml.validate": true,
-		// Globally set additionalProperties to false if additionalProperties is not set and if schema.type is object.
-		// So if its true, no extra properties are allowed inside yaml.
+		// Enable/disable hover feature
+		"yaml.hover": true,
+		// Enable/disable hover feature for anchors
+		"yaml.hoverAnchor": true,
+		// Enable/disable completion feature
+		"yaml.completion": true,
+		// Custom tags for the parser to use
+		"yaml.customTags": [],
+		// Automatically pull available YAML schemas from JSON Schema Store
+		"yaml.schemaStore.enable": true,
+		// URL of schema store catalog to use
+		"yaml.schemaStore.url": "https://www.schemastore.org/api/json/catalog.json",
+		// Globally set additionalProperties to false for all objects. So if its true, no extra properties are allowed inside yaml.
 		"yaml.disableAdditionalProperties": false,
+		// Disable adding not required properties with default values into completion text.
+		"yaml.disableDefaultProperties": false,
+		// The maximum number of outline symbols and folding regions computed (limited for performance reasons).
+		"yaml.maxItemsComputed": 5000,
+		// If true, the user must select some parent skeleton first before autocompletion starts to suggest the rest of the properties. When yaml object is not empty, autocompletion ignores this setting and returns all properties and skeletons
+		"yaml.suggest.parentSkeletonSelectedFirst": false,
+		// Forbid flow style mappings
+		"yaml.style.flowMapping": "allow",
+		// Forbid flow style sequences
+		"yaml.style.flowSequence": "allow",
+		// Enforces alphabetical ordering of keys in mappings when set to true
+		"yaml.keyOrdering": false,
+		// Enable/disable showing the schema source in hover tooltips
+		"yaml.hoverSchemaSource": true,
 	},
 	// Templated YAML syntaxes (like with Go templates) confuse yaml-language-server
 	// and are better handled by dedicated language servers.

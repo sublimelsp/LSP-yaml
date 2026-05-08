@@ -1,0 +1,11 @@
+{
+    "remove": [
+        "redhat.telemetry.enabled",
+        "yaml.extension.recommendations",
+        "yaml.trace.server"
+    ],
+    "transform": [
+        "if has(\"yaml.format.printWidth\") then .[\"yaml.format.printWidth\"].default = 120 else . end",
+        "if has(\"yaml.hoverSchemaSource\") then .[\"yaml.hoverSchemaSource\"].default = true else . end"
+    ]
+}
