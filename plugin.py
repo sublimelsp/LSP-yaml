@@ -37,7 +37,7 @@ class LspYamlPlugin(LspPlugin):
         )
 
     @uri_handler('json-schema')
-    def on_open_uri_async(self, uri: DocumentUri, flags: sublime.NewFileFlags) -> Promise[sublime.Sheet | None]:
+    def handle_json_schema_uri(self, uri: DocumentUri, flags: sublime.NewFileFlags) -> Promise[sublime.Sheet | None]:
         if not (session := self.weaksession()):
             return Promise.resolve(None)
         title = urldefrag(uri).url
