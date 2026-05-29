@@ -50,5 +50,5 @@ class LspYamlPlugin(LspPlugin):
                 syntax = syntax_obj.path
         except Exception as ex:
             content = f"Error: {ex}"
-        return session.open_scratch_buffer(http_url, content, syntax, uri, None, flags) \
-            .then(lambda view: view.sheet() if view else None)
+        return session.open_scratch_buffer(http_url, content, syntax, flags) \
+            .then(lambda view: view.sheet())
