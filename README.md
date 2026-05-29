@@ -1,8 +1,6 @@
 # LSP-yaml
 
-YAML support for Sublime's LSP plugin. Basically a fork of [sublimelsp/LSP-json](https://github.com/sublimelsp/LSP-json).
-
-Uses [yaml-language-server](https://github.com/redhat-developer/yaml-language-server) to provide validation, formatting and other features for YAML files. See linked repository for more information.
+YAML support for Sublime's LSP plugin. Uses [yaml-language-server](https://github.com/redhat-developer/yaml-language-server) to provide validation, formatting and other features for YAML files. See linked repository for more information.
 
 By default, schemas are automatically retrieved from [schemastore.org](http://schemastore.org/).
 
