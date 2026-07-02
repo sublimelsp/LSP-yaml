@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-import asyncio
 from pathlib import Path
 from typing import final
 from urllib.parse import unquote, urlparse
 from urllib.request import urlopen
 
 import sublime
-from LSP.plugin import LspPlugin, OnPreStartContext, uri_handler
+from LSP.plugin import LspPlugin, OnPreStartContext, run_on_threadpool, uri_handler
 from LSP.protocol import DocumentUri
 from lsp_utils import NodeManager
 from sublime_lib import ResourcePath
@@ -44,9 +43,7 @@ class LspYamlPlugin(LspPlugin):
         parsed = urlparse(uri)
         http_url = unquote(parsed.fragment)
         try:
-            content, syntax = await asyncio.get_running_loop().run_in_executor(
-                None, _blocking_get_content_and_syntax, http_url
-            )
+            content, syntax = await run_on_threadpool(_blocking_get_content_and_syntax, http_url)
         except Exception as ex:
             content = f"Error: {ex}"
             syntax = _DEFAULT_SYNTAX
