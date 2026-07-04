@@ -12,6 +12,7 @@ mypy.ini export-ignore
 pyproject.toml export-ignore
 renovate.json export-ignore
 requirements.* export-ignore
+settings-processor.json export-ignore
 stubs/ export-ignore
 tests/ export-ignore
 tox.ini export-ignore

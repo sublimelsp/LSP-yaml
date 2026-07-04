@@ -1,0 +1,22 @@
+{
+    "input_repository_url": "https://github.com/redhat-developer/vscode-yaml",
+    "input_repository_json_configuration_path": "package.json",
+    "transformers": [
+        {
+            "type": "jq",
+            "options": ".contributes.configuration.properties"
+        },
+        {
+            "type": "remove_keys",
+            "options": [
+                "redhat.telemetry.enabled",
+                "yaml.extension.recommendations",
+                "yaml.trace.server"
+            ]
+        },
+        {
+            "type": "jq",
+            "options": "if has(\"yaml.format.printWidth\") then .[\"yaml.format.printWidth\"].default = 120 else . end"
+        }
+    ]
+}
