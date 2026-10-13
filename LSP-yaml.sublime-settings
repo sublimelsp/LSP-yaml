@@ -1,4 +1,10 @@
 {
+	// The path to the server binary used to start the language server.
+	// Use `auto` for the package to manage (install/update) the server automatically.
+	// NOTE: Change this instead of directly updating `command` - the `${server_path}` variable is dynamically resolved based on this setting.
+	// WARNING: Override at your own risk - using a custom binary can cause compatibility issues with server settings.
+	"server_path": "auto",
+	"command": ["${node_bin}", "${server_path}", "--stdio"],
 	"schemes": ["file", "buffer", "res", "json-schema"],
 	// @see https://github.com/redhat-developer/yaml-language-server#language-server-settings
 	"settings": {
@@ -58,10 +64,4 @@
 	// Templated YAML syntaxes (like with Go templates) confuse yaml-language-server
 	// and are better handled by dedicated language servers.
 	"selector": "(source.yml | source.yaml) - (source.yaml.go | source.yaml.helm | source.yaml.esphome | source.yaml.pipeline.github-actions)",
-	// The path to the server binary used to start the language server.
-	// Use `auto` for the package to manage (install/update) the server automatically.
-	// NOTE: Change this instead of directly updating `command` - the `${server_path}` variable is dynamically resolved based on this setting.
-	// WARNING: Override at your own risk - using a custom binary can cause compatibility issues with server settings.
-	"server_path": "auto",
-	"command": ["${node_bin}", "${server_path}", "--stdio"],
 }
