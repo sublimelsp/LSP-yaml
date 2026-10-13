@@ -1,5 +1,4 @@
 {
-	"schemes": ["file", "buffer", "res", "json-schema"],
 	// @see https://github.com/redhat-developer/yaml-language-server#language-server-settings
 	"settings": {
 		// Default YAML spec version
@@ -55,6 +54,7 @@
 		// Enable/disable showing the schema source in hover tooltips
 		"yaml.hoverSchemaSource": true,
 	},
+	"schemes": ["file", "buffer", "res", "json-schema"],
 	// Templated YAML syntaxes (like with Go templates) confuse yaml-language-server
 	// and are better handled by dedicated language servers.
 	"selector": "(source.yml | source.yaml) - (source.yaml.go | source.yaml.helm | source.yaml.esphome | source.yaml.pipeline.github-actions)",
