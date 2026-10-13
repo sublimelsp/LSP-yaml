@@ -18,6 +18,11 @@
           "definitions": {
             "PluginConfig": {
               "properties": {
+                "server_path": {
+                  "type": "string",
+                  "default": "auto",
+                  "markdownDescription": "Path to a custom `yaml-language-server` binary (for example `/path/to/yaml-language-server/bin/yaml-language-server`). Use `\"auto\"` to use the server bundled and managed by this package."
+                },
                 "settings": {
                   "additionalProperties": false,
                   "properties": {

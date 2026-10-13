@@ -1,4 +1,7 @@
 {
+	// Path to a custom yaml-language-server binary (e.g. `/path/to/yaml-language-server/bin/yaml-language-server`).
+	// Use "auto" to use the server bundled and managed by this package.
+	"server_path": "auto",
 	"command": ["${node_bin}", "${server_path}", "--stdio"],
 	"schemes": ["file", "buffer", "res", "json-schema"],
 	// @see https://github.com/redhat-developer/yaml-language-server#language-server-settings
