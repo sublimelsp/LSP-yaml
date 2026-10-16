@@ -33,7 +33,7 @@ class LspYamlPlugin(LspPlugin):
             cls.plugin_storage_path,
             ResourcePath('Packages', package_name, 'language-server'),
             Path('node_modules', 'yaml-language-server', 'bin', 'yaml-language-server'),
-            node_version_requirement='>=18',
+            node_version_requirement='>=22.13.0',
         )
 
     @uri_handler('json-schema')
